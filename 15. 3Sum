@@ -1,0 +1,35 @@
+class Solution:
+    def threeSum(self, a: list[int]) -> list[list[int]]:
+        
+        ans = []
+        a.sort()
+
+        for i in range(len(a)):
+            
+            if a[i] > 0:
+                break
+
+            if i > 0 and a[i] == a[i - 1]:
+                continue
+
+            left = i + 1
+            right = len(a) - 1
+
+            while left < right:
+                flag = a[i] + a[left] + a[right]
+
+                if flag == 0:
+                    ans.append([a[left] , a[i] , a[right]])
+
+                    while left < right and a[left] == a[left +1]:
+                        left += 1
+                    while left < right and a[left] == a[right - 1]:  
+                        right -= 1
+
+                    left += 1
+                    right -= 1    
+                elif flag < 0:
+                    left += 1
+                else:
+                    right -= 1
+        return ans            
