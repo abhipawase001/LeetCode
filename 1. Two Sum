@@ -1,0 +1,23 @@
+//Brut-Force Approch :
+
+class Solution:
+    def twoSum(self, a: List[int], target: int) -> List[int]:
+        for i in range(len(a)):
+            curr_sum = target - a[i]
+            for j in range(i+1 , len(a)):
+                if a[j] == curr_sum:
+                    return(i , j)
+
+--------------------------------------------------------------------
+
+//Optimal Approch : ( Using Hash-Map )
+
+class Solution:
+    def twoSum(self, a: List[int], target: int) -> List[int]:
+
+        seen = {}
+        for i, num in enumerate(a):
+            total = target - num
+            if total in seen:
+                return [seen[total] , i]
+            seen[num] = i
