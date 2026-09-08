@@ -1,0 +1,12 @@
+class Solution:
+    def buyChoco(self, prices: List[int], money: int) -> int:
+        one = min(prices)
+        count = one
+        prices.remove(one)
+        two = min(prices)
+        count += two
+        if money - count >= 0:
+            money -= count
+        else:    
+            return money
+        return money    
