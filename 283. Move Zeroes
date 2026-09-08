@@ -1,0 +1,9 @@
+class Solution:
+    def moveZeroes(self, a: List[int]) -> None:
+
+        slow = 0
+
+        for fast in range(len(a)):
+            if a[fast] != 0:
+                a[slow] , a[fast] = a[fast] , a[slow]
+                slow += 1
