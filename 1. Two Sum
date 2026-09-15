@@ -7,6 +7,7 @@ class Solution:
             for j in range(i+1 , len(a)):
                 if a[j] == curr_sum:
                     return(i , j)
+                    break
 
 --------------------------------------------------------------------
 
@@ -20,4 +21,27 @@ class Solution:
             total = target - num
             if total in seen:
                 return [seen[total] , i]
+            seen[num] = i
+
+----------------------------------------------------------------------
+
+//Optimal Approch : ( Two Pointers )
+
+class Solution: 
+    def twoSum(self, a: List[int], target: int) -> List[int]:
+
+        left = 0
+        right = len(a) - 1
+
+        while left < right:
+            if a[left] + a[right] == target:
+                return [left , right]
+                break
+
+            elif a[left] + a[right] < target:
+                left += 1
+
+            else:
+                right -= 1
+
             seen[num] = i
